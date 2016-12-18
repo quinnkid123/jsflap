@@ -1,3 +1,5 @@
 .idea
 jsflap.iml
 node_modules
+*.sln
+web.config

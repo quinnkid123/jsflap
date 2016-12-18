@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html ng-app="jsflap" ng-cloak="" ng-controller="AppController" jsflap-app>
 <head lang="en">
     <meta charset="UTF-8">
@@ -27,12 +27,12 @@
                 <a href="#">File</a>
                 <ul top-bar-dropdown>
                     <li><a href="/" target="_blank"><i class="fa fa-file fa-fw"></i> New</a></li>
-                    <!--<li has-dropdown>-->
-                        <!--<a href="#"><i class="fa fa-folder-open fa-fw"></i> Open...</a>-->
-                        <!--<ul top-bar-dropdown>-->
-                            <!--<li><a href="#">Coming Soon</a></li>-->
-                        <!--</ul>-->
-                    <!--</li>-->
+                    <li has-dropdown>
+                        <a href="#"><i class="fa fa-folder-open fa-fw"></i> Open...</a>
+                        <ul top-bar-dropdown>
+                            <li><a href="#">Coming Soon</a></li>
+                        </ul>
+                    </li>
                     <li has-dropdown>
                         <a href="#"><i class="fa fa-share-square-o fa-fw"></i> Export...</a>
                         <ul top-bar-dropdown>
@@ -62,13 +62,13 @@
 </top-bar>
 <div class="full main-row">
     <div class="icon-bar vertical three-up mode_selectors">
-        <a href="#" ng-click="board.setMode(0)" class="item mode_selector" ng-class="(board.state.mode === 0)?'active':''" tooltip-placement="right"  tooltip-append-to-body="true" tooltip-popup-delay="1000" tooltip="Pencil tool: Click to create nodes, drag to create edges"><i class="fa fa-pencil"></i></a></li>
-        <a href="#" ng-click="board.setMode(1)" class="item mode_selector" ng-class="(board.state.mode === 1)?'active':''" tooltip-placement="right"  tooltip-append-to-body="true" tooltip-popup-delay="1000" tooltip="Move tool: Move nodes, control points, or the board around"><i class="fa fa-arrows"></i></a></li>
-        <a href="#"  ng-click="board.setMode(2)" class="item mode_selector" ng-class="(board.state.mode === 2)?'active':''" tooltip-placement="right" tooltip-append-to-body="true" tooltip-popup-delay="1000" tooltip="Eraser tool: Erase nodes, edges, or transitions when activated"><i class="fa fa-eraser"></i></a></li>
+        <a href="#" ng-click="board.setMode(0)" class="item mode_selector" ng-class="(board.state.mode === 0)?'active':''" tooltip-placement="right"  tooltip-append-to-body="true" tooltip-popup-delay="1000" tooltip="Pencil tool: Click to create nodes, drag to create edges"><i class="fa fa-pencil"></i></a>
+        <a href="#" ng-click="board.setMode(1)" class="item mode_selector" ng-class="(board.state.mode === 1)?'active':''" tooltip-placement="right"  tooltip-append-to-body="true" tooltip-popup-delay="1000" tooltip="Move tool: Move nodes, control points, or the board around"><i class="fa fa-arrows"></i></a>
+        <a href="#"  ng-click="board.setMode(2)" class="item mode_selector" ng-class="(board.state.mode === 2)?'active':''" tooltip-placement="right" tooltip-append-to-body="true" tooltip-popup-delay="1000" tooltip="Eraser tool: Erase nodes, edges, or transitions when activated"><i class="fa fa-eraser"></i></a>
     </div>
     <section class="board-container" jsflap-board-container>
         <svg tabindex="0" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" ng-class="'theme-' + board.settings.theme" jsflap-board>
-            <marker id="markerArrow" markerWidth="13" markerHeight="13" refx="8" refy="7"
+            <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="7"
                     orient="auto">
                 <path class="markerArrow" d="M2,2 L2,13 L8,7 L2,2" style="fill: #000000; shape-rendering: optimizeSpeed !important;"></path>
             </marker>
@@ -105,7 +105,7 @@
                     </li>
                     <li>
                         <button type="button" class="small button secondary dropdown" dropdown-toggle="#graph-settings-type">
-                            {{graphMeta.type == 'FA'? 'Finite Automatta': 'Turing Machine'}}
+                            {{graphMeta.type == 'FA'? 'Finite Automata': 'Turing Machine'}}
                         </button>
                         <ul id="graph-settings-type" class="f-dropdown">
                             <li ng-repeat="(type, displayType) in availableTypes"><a href="#" ng-click="graphMeta.type = type">{{displayType}}</a></li>
@@ -118,7 +118,7 @@
                 <ul class="stack even-1 button-group">
                     <li>
                         <button type="button" class="small button expand secondary dropdown" dropdown-toggle="#graph-settings-themes">
-                            <i class="fa fa-paint-brush"></i> Theme</a>
+                            <i class="fa fa-paint-brush"></i> Theme
                         </button>
                         <ul id="graph-settings-themes" class="f-dropdown">
                             <li ng-repeat="(themeKey, themeName) in availableThemes" ng-class="themeKey === board.settings.theme? 'active': ''"><a href="#" ng-click="board.settings.theme = themeKey">{{themeName}}</a></li>
@@ -126,7 +126,7 @@
                     </li>
                     <li>
                         <button type="button" class="small button expand secondary dropdown" dropdown-toggle="#graph-settings-transitionStyles">
-                            <i class="fa fa-font"></i> Transition Style</a>
+                            <i class="fa fa-font"></i> Transition Style
                         </button>
                         <ul id="graph-settings-transitionStyles" class="f-dropdown">
                             <li ng-repeat="transitionStyleName in availableTransitionStyles" ng-class="$index === board.settings.transitionStyle? 'active': ''"><a href="#" ng-click="board.settings.transitionStyle = $index; board.visualizations.update()">{{transitionStyleName}}</a></li>
@@ -208,6 +208,31 @@
                         </button>
                     </li>
                 </ul>
+                <div class="text-subheading">
+                    Finite Automota Tools
+                </div>
+                <ul class="stack even-1 button-group">
+                    <li>
+                        <button type="button" class="small button expand secondary" ng-click="graph.reduce()">
+                            <i class="fa fa-fw fa-arrow-circle-o-down"></i> Reduce
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="small button expand secondary" ng-click="graph.translate()">
+                            <i class="fa fa-fw fa-chevron-circle-down"></i> Translate to DFA
+                        </button>
+                    </li>
+                </ul>
+                <!--<div class="row full">
+                    <div class="button-bar small-12 columns" style="text-align:center">
+                        <button type="button" id="reduce_btn" onclick="{graph.reduce()}" disabled>Reduce</button>
+                    </div>
+                </div>
+                <div class="row full">
+                    <div class="button-bar small-12 columns" style="text-align:center">
+                        <button type="button" id="translate_btn" onclick="{}" disabled>Translate</button>
+                    </div>
+                </div>-->
             </tab>
             <tab>
                 <tab-heading tooltip="Simulate" tooltip-placement="bottom" tooltip-append-to-body="true">

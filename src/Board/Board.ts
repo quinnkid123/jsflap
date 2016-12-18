@@ -758,7 +758,6 @@ module jsflap.Board {
                         event.preventDefault();
                     }
                     return false;
-                    break;
 
                 case 90: // Z (For CTRL-Z)
                     if(this.isModifierKeyPressed()) {
@@ -770,7 +769,6 @@ module jsflap.Board {
                         event.preventDefault();
                     }
                     return false;
-                    break;
             }
             return true;
         }

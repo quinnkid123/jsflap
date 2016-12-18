@@ -467,9 +467,10 @@ module jsflap.Graph {
          */
         isValid(): boolean {
             var isValid = true;
+            return true;
 
             // It's not valid if there is either no start node or no end nodes
-            if(!this.initialNode || this.getFinalNodes().size === 0) {
+            /*if(!this.initialNode || this.getFinalNodes().size === 0) {
                 isValid = false;
             }
 
@@ -515,6 +516,18 @@ module jsflap.Graph {
                 return isValid;
             } else {
                 return isValid;
+            }*/
+        }
+
+        reduce(): void {
+            if (this.isValid()) {
+                console.log("Reduce!");
+            }
+        }
+
+        translate(): void {
+            if (!this.deterministic && this.isValid()) {
+                console.log("Translate!");
             }
         }
         

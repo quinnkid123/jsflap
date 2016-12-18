@@ -1,13 +1,13 @@
 {
-  "name": "jsflap",
-  "version": "0.0.0",
-  "homepage": "https://github.com/bgrawi/jsflap",
   "authors": [
-    "Ben Grawi <onionhouseprod@gmail.com>"
+    "Ben Grawi <onionhouseprod@gmail.com>",
+    "Bryan Quinn <bryan.quinn17@gmail.com"
   ],
-  "main": "index.html",
-  "license": "MIT",
-  "private": true,
+  "dependencies": {
+    "d3": "~3.5.2",
+    "angular": "1.3.6"
+  },
+  "homepage": "https://github.com/bgrawi/jsflap",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,8 +15,9 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "d3": "~3.5.2",
-    "angular": "1.3.6"
-  }
+  "license": "MIT",
+  "main": "index.html",
+  "name": "jsflap",
+  "private": true,
+  "version": "0.0.0"
 }
