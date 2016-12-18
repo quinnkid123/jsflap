@@ -339,7 +339,7 @@ module jsflap.Board {
                     .filter((possibleEdge: Edge) => possibleEdge === edge)
                     .select("tspan:first-child");
 
-                if (elm.length > 0) {
+                if (elm.size() > 0) {
                     this.visualizations.update();
                     this.visualizations.editTransition(edge, <SVGTextElement> elm.node());
                 }

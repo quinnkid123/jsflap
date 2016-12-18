@@ -718,7 +718,7 @@ declare module D3 {
         format(rows: any[]): string;
     }
 
-    export interface Selection extends Selectors, Array<any> {
+    export interface Selection extends Selectors { //, Array<any> {
         attr: {
             (name: string): string;
             (name: string, value: any): Selection;

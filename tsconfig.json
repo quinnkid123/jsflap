@@ -1,5 +1,18 @@
 {
-	"compilerOptions": {
-		"target": "ES5"
-	}
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module":"system",
+    "target": "es5",
+    "sourceMap": true,
+    "outFile": "dist/js/jsflap.js",
+    "allowJs":  false
+  },
+  "include": [
+    "defs/**/*.ts",
+    "src/**/*.ts"
+  ],
+  "exclude": [
+        "jsflap.css",
+        "jsflap.js"
+    ]
 }
